@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nile Landscaper — Winnipeg Landscaping &amp; Hardscaping</title>
+<meta name="description" content="Nile Landscaper builds patios, retaining walls, stonework, and lawns in Winnipeg, MB — built for Manitoba's freeze-thaw climate. 5.0★ rated. Free quotes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Source+Serif+4:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#E4E1D8;
+    --surface:#F1EFE8;
+    --ink:#201F1B;
+    --ink-soft:#4B4A43;
+    --charcoal:#212219;
+    --charcoal-2:#2B2C22;
+    --cream-on-dark:#EDE9DC;
+    --cedar:#9A4A22;
+    --cedar-dark:#7C3B1A;
+    --moss:#3E5138;
+    --steel:#5C5F57;
+    --line:#C7C2B3;
+    --line-dark:#43443A;
+    --radius:2px;
+    --display:'Big Shoulders Display', sans-serif;
+    --body:'Source Serif 4', Georgia, serif;
+    --mono:'IBM Plex Mono', monospace;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--cedar);
+    display:flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:26px; height:1px;
+    background:var(--cedar);
+    display:inline-block;
+  }
+  .eyebrow.on-dark{color:#D98A5E;}
+  .eyebrow.on-dark::before{background:#D98A5E;}
+
+  h1,h2,h3{
+    font-family:var(--display);
+    text-transform:uppercase;
+    font-weight:800;
+    line-height:0.98;
+    letter-spacing:0.01em;
+  }
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(33,34,25,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px;
+    max-width:1180px; margin:0 auto;
+  }
+  .brand{
+    font-family:var(--display);
+    font-weight:800;
+    font-size:22px;
+    text-transform:uppercase;
+    color:var(--cream-on-dark);
+    letter-spacing:0.02em;
+    text-decoration:none;
+  }
+  .brand span{color:var(--cedar-dark); color:#D98A5E;}
+  .nav-links{display:flex; gap:28px; list-style:none;}
+  .nav-links a{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--cream-on-dark);
+    text-decoration:none;
+    opacity:0.85;
+    transition:opacity 0.2s;
+  }
+  .nav-links a:hover{opacity:1;}
+  .nav-cta{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    background:var(--cedar);
+    color:#fff;
+    padding:9px 16px;
+    text-decoration:none;
+    border-radius:var(--radius);
+    white-space:nowrap;
+  }
+  .nav-toggle{display:none;}
+
+  @media (max-width:860px){
+    .nav-links{display:none;}
+    .nav-toggle{
+      display:block; background:none; border:1px solid var(--line-dark);
+      color:var(--cream-on-dark); font-family:var(--mono); font-size:11px;
+      letter-spacing:0.08em; text-transform:uppercase; padding:8px 12px; border-radius:var(--radius);
+    }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex; align-items:flex-end;
+    background:var(--charcoal);
+    overflow:hidden;
+  }
+  .hero-img{
+    position:absolute; inset:0; width:100%; height:100%;
+    object-fit:cover; opacity:0.62;
+  }
+  .hero::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(33,34,25,0.35) 0%, rgba(33,34,25,0.55) 55%, rgba(20,21,15,0.96) 100%);
+  }
+  .hero-content{
+    position:relative; z-index:2;
+    padding:160px 28px 64px;
+    max-width:1180px; margin:0 auto;
+    width:100%;
+  }
+  .hero-content .eyebrow{margin-bottom:22px;}
+  .hero h1{
+    font-size:clamp(48px, 10vw, 108px);
+    color:var(--cream-on-dark);
+    margin-bottom:26px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:#D98A5E;
+    display:block;
+  }
+  .hero-sub{
+    font-family:var(--body);
+    font-style:italic;
+    font-size:19px;
+    color:#C9C4B4;
+    max-width:480px;
+    margin-bottom:34px;
+  }
+  .btn-row{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:44px;}
+  .btn{
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:15px 26px;
+    border-radius:var(--radius);
+    display:inline-flex; align-items:center; gap:10px;
+    transition:transform 0.15s ease, background 0.15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--cedar); color:#fff;}
+  .btn-primary:hover{background:var(--cedar-dark);}
+  .btn-ghost{border:1px solid #6C6B5E; color:var(--cream-on-dark);}
+  .btn-ghost:hover{border-color:var(--cream-on-dark);}
+
+  .stat-strip{
+    display:flex; flex-wrap:wrap; gap:0;
+    border-top:1px solid var(--line-dark);
+  }
+  .stat{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.06em;
+    color:#C9C4B4;
+    padding:16px 24px 0 0;
+    margin-right:24px;
+    text-transform:uppercase;
+  }
+  .stat b{color:var(--cream-on-dark); font-size:14px;}
+
+  /* ---------- SECTION GENERIC ---------- */
+  section{padding:96px 0;}
+  .section-head{margin-bottom:52px; max-width:640px;}
+  .section-head h2{font-size:clamp(34px,5vw,52px); margin-top:14px;}
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    border-top:1px solid var(--line);
+    border-left:1px solid var(--line);
+  }
+  .service{
+    border-right:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    padding:32px 30px;
+    transition:background 0.2s;
+  }
+  .service:hover{background:var(--surface);}
+  .service-num{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--cedar);
+    letter-spacing:0.08em;
+  }
+  .service h3{
+    font-size:23px;
+    margin:14px 0 10px;
+    letter-spacing:0.01em;
+  }
+  .service p{font-size:15.5px; color:var(--ink-soft);}
+
+  @media (max-width:760px){
+    .services-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- GALLERY ---------- */
+  .gallery-strip{background:var(--charcoal); color:var(--cream-on-dark);}
+  .gallery-strip .section-head h2{color:var(--cream-on-dark);}
+  .gallery-strip .section-head p{color:#B8B4A6;}
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:2px;
+  }
+  .gallery-item{
+    position:relative;
+    aspect-ratio:4/5;
+    overflow:hidden;
+    cursor:pointer;
+    background:#111;
+  }
+  .gallery-item:nth-child(5n+1){grid-column:span 2; grid-row:span 2; aspect-ratio:1/1;}
+  .gallery-item img{
+    width:100%; height:100%; object-fit:cover;
+    transition:transform 0.5s ease, opacity 0.3s ease;
+    opacity:0.9;
+  }
+  .gallery-item:hover img{transform:scale(1.05); opacity:1;}
+  .gallery-tag{
+    position:absolute; left:0; bottom:0; right:0;
+    padding:10px 12px;
+    background:linear-gradient(0deg, rgba(0,0,0,0.75), rgba(0,0,0,0));
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:#fff;
+  }
+  @media (max-width:860px){
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-item:nth-child(5n+1){grid-column:span 2; grid-row:span 1; aspect-ratio:16/10;}
+  }
+
+  /* Lightbox */
+  .lightbox{
+    position:fixed; inset:0; z-index:1000;
+    background:rgba(15,16,11,0.94);
+    display:none; align-items:center; justify-content:center;
+    padding:40px;
+  }
+  .lightbox.active{display:flex;}
+  .lightbox img{max-width:90vw; max-height:82vh; object-fit:contain; border:1px solid var(--line-dark);}
+  .lightbox-close{
+    position:absolute; top:24px; right:28px;
+    font-family:var(--mono); color:#fff; background:none; border:1px solid #666;
+    padding:8px 14px; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; cursor:pointer;
+    border-radius:var(--radius);
+  }
+  .lightbox-cap{
+    position:absolute; bottom:30px; left:50%; transform:translateX(-50%);
+    font-family:var(--mono); font-size:11px; letter-spacing:0.1em; text-transform:uppercase;
+    color:#B8B4A6;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:64px;
+    align-items:center;
+  }
+  .about-img{position:relative;}
+  .about-img img{border-radius:var(--radius);}
+  .about-copy p{font-size:18px; color:var(--ink-soft); margin-bottom:20px; max-width:520px;}
+  .about-stats{
+    display:flex; gap:36px; margin-top:36px; flex-wrap:wrap;
+  }
+  .about-stat b{
+    font-family:var(--display); font-size:38px; display:block; color:var(--cedar);
+  }
+  .about-stat span{
+    font-family:var(--mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--steel);
+  }
+  @media (max-width:860px){
+    .about{grid-template-columns:1fr;}
+  }
+
+  /* ---------- REVIEWS (paver tile signature) ---------- */
+  .reviews{background:var(--surface);}
+  .paver-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:14px;
+  }
+  .paver{
+    background:#EAE6D9;
+    border:1px solid var(--line);
+    padding:26px 24px;
+    box-shadow:0 1px 0 rgba(0,0,0,0.04), inset 0 0 0 1px rgba(255,255,255,0.3);
+    position:relative;
+  }
+  .paver:nth-child(2n){transform:rotate(-0.35deg);}
+  .paver:nth-child(3n){transform:rotate(0.4deg);}
+  .paver:nth-child(5n){transform:rotate(-0.2deg);}
+  .stars{color:var(--cedar); font-size:14px; letter-spacing:2px; margin-bottom:14px;}
+  .paver p{
+    font-style:italic; font-size:15.5px; color:var(--ink);
+    margin-bottom:16px; line-height:1.55;
+  }
+  .paver-name{
+    font-family:var(--mono); font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--steel);
+  }
+  @media (max-width:860px){
+    .paver-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:600px){
+    .paver-grid{grid-template-columns:1fr;}
+    .paver{transform:none !important;}
+  }
+  .rating-banner{
+    display:flex; align-items:center; gap:18px; margin-bottom:40px;
+    font-family:var(--mono); font-size:13px; letter-spacing:0.05em; color:var(--ink-soft);
+  }
+  .rating-banner .big{
+    font-family:var(--display); font-size:44px; color:var(--ink); line-height:1;
+  }
+
+  /* ---------- SERVICE AREA ---------- */
+  .area{
+    background:var(--charcoal-2);
+    color:var(--cream-on-dark);
+  }
+  .area-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;}
+  .area p{color:#C9C4B4; font-size:17px; max-width:440px; margin-bottom:20px;}
+  .area-list{
+    columns:2; gap:24px;
+    font-family:var(--mono); font-size:13px; letter-spacing:0.03em;
+    color:#D8D4C6;
+    list-style:none;
+  }
+  .area-list li{padding:9px 0; border-bottom:1px solid var(--line-dark);}
+  @media (max-width:760px){
+    .area-grid{grid-template-columns:1fr; gap:32px;}
+  }
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    background:var(--cedar);
+    color:#fff;
+    padding:80px 0;
+    text-align:center;
+  }
+  .cta-banner h2{color:#fff; font-size:clamp(32px,6vw,58px); margin-bottom:20px;}
+  .cta-banner .phone-link{
+    font-family:var(--display); font-size:clamp(30px,5vw,44px);
+    color:#fff; text-decoration:none; display:inline-block; margin-bottom:28px;
+    border-bottom:2px solid rgba(255,255,255,0.4);
+  }
+  .cta-btns{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+  .cta-banner .btn-ghost{border-color:rgba(255,255,255,0.5); color:#fff;}
+  .cta-banner .btn-ghost:hover{border-color:#fff;}
+  .cta-banner .btn-primary{background:#fff; color:var(--cedar);}
+  .cta-banner .btn-primary:hover{background:#F1EFE8;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--charcoal);
+    color:#A9A599;
+    padding:56px 0 28px;
+  }
+  .foot-grid{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px;
+    border-bottom:1px solid var(--line-dark);
+    padding-bottom:36px; margin-bottom:24px;
+  }
+  .foot-brand{font-family:var(--display); font-size:26px; text-transform:uppercase; color:var(--cream-on-dark);}
+  .foot-col h4{
+    font-family:var(--mono); font-size:11px; letter-spacing:0.08em; text-transform:uppercase;
+    color:#7C7A6E; margin-bottom:12px;
+  }
+  .foot-col p, .foot-col a{
+    font-family:var(--mono); font-size:13px; color:#C9C4B4; text-decoration:none; line-height:2;
+    display:block;
+  }
+  .foot-bottom{
+    font-family:var(--mono); font-size:11px; color:#71705F;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px;
+  }
+
+  /* scroll reveal */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity 0.7s ease, transform 0.7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#" class="brand">NILE <span>LANDSCAPER</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#work">Our Work</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#area">Service Area</a></li>
+    </ul>
+    <a href="tel:+14319901824" class="nav-cta">(431) 990-1824</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <img src="images/hero-pergola-patio.jpg" alt="Paving stone patio with cedar pergola built by Nile Landscaper in Winnipeg" class="hero-img">
+  <div class="hero-content">
+    <p class="eyebrow on-dark">Winnipeg, Manitoba · Local Landscaper</p>
+    <h1>Built for<br><em>Manitoba backyards</em></h1>
+    <p class="hero-sub">Patios, retaining walls, stonework, and lawns built to take a Winnipeg winter and still look sharp come July.</p>
+    <div class="btn-row">
+      <a href="tel:+14319901824" class="btn btn-primary">Call for a Free Quote</a>
+      <a href="sms:+14319901824" class="btn btn-ghost">Text Us</a>
+    </div>
+    <div class="stat-strip">
+      <div class="stat"><b>5.0 ★</b> Google rating</div>
+      <div class="stat"><b>37</b> reviews on Google</div>
+      <div class="stat"><b>Winnipeg</b> &amp; surrounding areas</div>
+      <div class="stat"><b>Free</b> on-site quotes</div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">What We Build</p>
+      <h2>Eight things<br>we do best.</h2>
+    </div>
+  </div>
+  <div class="services-grid">
+    <div class="service reveal">
+      <p class="service-num">01</p>
+      <h3>Patios &amp; Hardscaping</h3>
+      <p>Paving stone, flagstone, and concrete patios with a base built to handle freeze-thaw without heaving or cracking.</p>
+    </div>
+    <div class="service reveal">
+      <p class="service-num">02</p>
+      <h3>Retaining Walls &amp; Stonework</h3>
+      <p>Stone and block retaining walls that solve grading and erosion problems while adding real structure to the yard.</p>
+    </div>
+    <div class="service reveal">
+      <p class="service-num">03</p>
+      <h3>Lawn Care &amp; Sod</h3>
+      <p>Sod installation, seeding, and hydroseeding for a lawn that fills in thick and stays green through the season.</p>
+    </div>
+    <div class="service reveal">
+      <p class="service-num">04</p>
+      <h3>Garden &amp; Bed Design</h3>
+      <p>Custom garden beds, rock features, and plantings chosen for Manitoba's growing zone, not a catalog photo.</p>
+    </div>
+    <div class="service reveal">
+      <p class="service-num">05</p>
+      <h3>Yard Drainage &amp; Grading</h3>
+      <p>Regrading and rock drainage beds that move water away from your foundation instead of pooling against it.</p>
+    </div>
+    <div class="service reveal">
+      <p class="service-num">06</p>
+      <h3>Walkways &amp; Steps</h3>
+      <p>Stone, timber, and paver walkways and steps built for safe, solid footing through every season.</p>
+    </div>
+    <div class="service reveal">
+      <p class="service-num">07</p>
+      <h3>Artificial Turf</h3>
+      <p>Zero-mowing, zero-watering turf for busy households, pet owners, and anyone done fighting the lawn.</p>
+    </div>
+    <div class="service reveal">
+      <p class="service-num">08</p>
+      <h3>Snow Removal</h3>
+      <p>Reliable winter clearing for driveways and walkways once the landscaping season wraps up for the year.</p>
+    </div>
+  </div>
+</section>
+
+<section class="gallery-strip" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow on-dark">Recent Work</p>
+      <h2>Thirteen jobs,<br>one city.</h2>
+      <p style="margin-top:14px; font-family:var(--body); font-style:italic;">Every photo below is from an actual Nile Landscaper install in the Winnipeg area. Tap any photo to see it full-size.</p>
+    </div>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item reveal" data-cap="Pergola Patio · Paving Stone"><img src="images/hero-pergola-patio.jpg" alt="Paving stone patio under a cedar pergola" loading="lazy"><span class="gallery-tag">Pergola Patio · Paving Stone</span></div>
+    <div class="gallery-item reveal" data-cap="Timber Steps · Rock Drainage Fill"><img src="images/steps-gravel-fill.jpg" alt="Timber-framed steps filled with crushed rock" loading="lazy"><span class="gallery-tag">Timber Steps · Rock Fill</span></div>
+    <div class="gallery-item reveal" data-cap="Fire Pit Patio · Retaining Wall"><img src="images/patio-firepit-birdseye.jpg" alt="Gravel fire pit patio with curved retaining wall" loading="lazy"><span class="gallery-tag">Fire Pit · Retaining Wall</span></div>
+    <div class="gallery-item reveal" data-cap="Paver Patio · Planting Bed"><img src="images/paver-patio-pergola.jpg" alt="Paver patio with potted tree and planting bed" loading="lazy"><span class="gallery-tag">Paver Patio · Planting Bed</span></div>
+    <div class="gallery-item reveal" data-cap="Porcelain Tile Patio"><img src="images/tile-patio-deck.jpg" alt="Dark porcelain tile patio set into a wood deck" loading="lazy"><span class="gallery-tag">Porcelain Tile Patio</span></div>
+    <div class="gallery-item reveal" data-cap="Gravel Fire Pit Lounge"><img src="images/firepit-adirondack.jpg" alt="Gravel fire pit lounge with Adirondack chairs" loading="lazy"><span class="gallery-tag">Gravel Fire Pit Lounge</span></div>
+    <div class="gallery-item reveal" data-cap="Sod Lawn Install"><img src="images/lawn-lush-shed.jpg" alt="Freshly installed sod lawn" loading="lazy"><span class="gallery-tag">Sod Lawn Install</span></div>
+    <div class="gallery-item reveal" data-cap="Garden Walkway"><img src="images/gravel-path-roses.jpg" alt="Gravel garden walkway lined with climbing roses" loading="lazy"><span class="gallery-tag">Garden Walkway</span></div>
+    <div class="gallery-item reveal" data-cap="Paver Steps · Garden Bed"><img src="images/paver-steps-bed.jpg" alt="Paver patio with curved steps and planting bed" loading="lazy"><span class="gallery-tag">Paver Steps · Bed</span></div>
+    <div class="gallery-item reveal" data-cap="Block Retaining Wall · Steps"><img src="images/retaining-wall-steps.jpg" alt="Concrete block retaining wall with built-in steps" loading="lazy"><span class="gallery-tag">Retaining Wall · Steps</span></div>
+    <div class="gallery-item reveal" data-cap="Full Yard Paving"><img src="images/paver-yard-wide.jpg" alt="Wide paver patio spanning the full yard" loading="lazy"><span class="gallery-tag">Full Yard Paving</span></div>
+    <div class="gallery-item reveal" data-cap="Lawn Care · Striped Cut"><img src="images/lawn-striped-pergola.jpg" alt="Green lawn with mowed stripe pattern" loading="lazy"><span class="gallery-tag">Lawn Care · Striped Cut</span></div>
+    <div class="gallery-item reveal" data-cap="Flagstone Patio · In Progress"><img src="images/flagstone-install.jpg" alt="Flagstone patio being installed" loading="lazy"><span class="gallery-tag">Flagstone · In Progress</span></div>
+  </div>
+</section>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose">Close ✕</button>
+  <img src="" alt="" id="lightboxImg">
+  <p class="lightbox-cap" id="lightboxCap"></p>
+</div>
+
+<section>
+  <div class="wrap about">
+    <div class="about-img reveal">
+      <img src="images/retaining-wall-steps.jpg" alt="Concrete block retaining wall with built-in steps">
+    </div>
+    <div class="about-copy reveal">
+      <p class="eyebrow">Why Nile</p>
+      <h2 style="font-size:clamp(30px,4.5vw,44px); margin:14px 0 22px;">We build for the ground we've got.</h2>
+      <p>Manitoba's clay soil and freeze-thaw winters are hard on outdoor work that isn't built right the first time. We plan every patio, wall, and bed with that in mind — proper base prep, materials that can take the swing from −30 to +30, and drainage that actually moves water away from the house.</p>
+      <p>We handle jobs of every size, from a single garden bed to a full yard rebuild, and we're on call for snow clearing once the landscaping season wraps up.</p>
+      <div class="about-stats">
+        <div class="about-stat"><b>5.0★</b><span>Average Rating</span></div>
+        <div class="about-stat"><b>37</b><span>Google Reviews</span></div>
+        <div class="about-stat"><b>13+</b><span>Projects Shown Here</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">From the Neighborhood</p>
+      <h2>What Winnipeg<br>is saying.</h2>
+    </div>
+    <div class="rating-banner reveal">
+      <span class="big">5.0</span>
+      <span>★★★★★<br>37 reviews on Google</span>
+    </div>
+    <div class="paver-grid">
+      <div class="paver reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Nile Landscaper handled our sod installation and rock border design beautifully. Professional, on time, and the finished result exceeded expectations."</p>
+        <div class="paver-name">Keane B. — Winnipeg</div>
+      </div>
+      <div class="paver reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Designed and built a gorgeous outdoor step system with stone and rock fill. The craftsmanship is outstanding and it's held up perfectly through the seasons."</p>
+        <div class="paver-name">Ved L. — Winnipeg</div>
+      </div>
+      <div class="paver reveal">
+        <div class="stars">★★★★★</div>
+        <p>"We hired them for hardscaping and they nailed the design using rock and stone accents throughout. True professionals, and the price was reasonable."</p>
+        <div class="paver-name">Victor O. — Winnipeg</div>
+      </div>
+      <div class="paver reveal">
+        <div class="stars">★★★★★</div>
+        <p>"They fixed our backyard drainage with custom timber-framed terraced steps filled with crushed rock. Solid craftsmanship, clean lines, solved a real problem."</p>
+        <div class="paver-name">Siya S. — Winnipeg</div>
+      </div>
+      <div class="paver reveal">
+        <div class="stars">★★★★★</div>
+        <p>"He made my backyard look amazing. Worth every penny."</p>
+        <div class="paver-name">Adam B. — Winnipeg</div>
+      </div>
+      <div class="paver reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Amazing work on our garden beds — used quality stone and rock to create a low-maintenance, year-round look."</p>
+        <div class="paver-name">Bhavneet K. — Winnipeg</div>
+      </div>
+      <div class="paver reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Built us a stunning retaining wall using natural stone and rock. The design sense is incredible — functional and beautiful."</p>
+        <div class="paver-name">Azaan A. — Winnipeg</div>
+      </div>
+      <div class="paver reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Great communication from quote to finish, and the stonework quality is top-tier. Everything looks precise and well-crafted."</p>
+        <div class="paver-name">Uthshob M. — Winnipeg</div>
+      </div>
+      <div class="paver reveal">
+        <div class="stars">★★★★★</div>
+        <p>"Quick, efficient, and very professional. Would recommend to anyone in Winnipeg looking to redo their yard."</p>
+        <div class="paver-name">Gbassay K. — Winnipeg</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="area" id="area">
+  <div class="wrap area-grid">
+    <div class="reveal">
+      <p class="eyebrow on-dark">Where We Work</p>
+      <h2 style="color:var(--cream-on-dark); font-size:clamp(30px,4.5vw,44px); margin:14px 0 20px;">Winnipeg &amp; the surrounding area.</h2>
+      <p>Based at 130 Beliveau Rd, we take on jobs across Winnipeg and the communities around it. Not sure if we cover your address? Call or text — it takes ten seconds to check.</p>
+      <a href="tel:+14319901824" class="btn btn-primary" style="margin-top:8px;">Call (431) 990-1824</a>
+    </div>
+    <ul class="area-list reveal">
+      <li>Winnipeg, MB</li>
+      <li>St. Vital</li>
+      <li>St. Boniface</li>
+      <li>River Heights</li>
+      <li>Fort Garry</li>
+      <li>Transcona</li>
+      <li>St. James</li>
+      <li>North Kildonan</li>
+      <li>East Kildonan</li>
+      <li>Charleswood</li>
+      <li>+ nearby municipalities</li>
+      <li>Call to confirm your area</li>
+    </ul>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="wrap">
+    <h2>Ready to start?</h2>
+    <a href="tel:+14319901824" class="phone-link">(431) 990-1824</a>
+    <div class="cta-btns">
+      <a href="tel:+14319901824" class="btn btn-primary">Call Now</a>
+      <a href="sms:+14319901824" class="btn btn-ghost">Text Us</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">NILE LANDSCAPER</div>
+        <p style="font-family:var(--mono); font-size:13px; color:#8C8A7C; margin-top:10px; max-width:260px;">Landscaping &amp; hardscaping built for Manitoba backyards.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <a href="tel:+14319901824">(431) 990-1824</a>
+        <a href="sms:+14319901824">Text Us</a>
+        <p>130 Beliveau Rd<br>Winnipeg, MB R2M 1S7</p>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <a href="#services">Patios &amp; Hardscaping</a>
+        <a href="#services">Retaining Walls</a>
+        <a href="#services">Lawn Care &amp; Sod</a>
+        <a href="#services">Snow Removal</a>
+      </div>
+      <div class="foot-col">
+        <h4>Hours</h4>
+        <p>Open daily<br>Call or text anytime</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Nile Landscaper · Winnipeg, MB</span>
+      <span>5.0★ · 37 Google reviews</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxCap = document.getElementById('lightboxCap');
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const img = item.querySelector('img');
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightboxCap.textContent = item.dataset.cap || '';
+      lightbox.classList.add('active');
+    });
+  });
+  document.getElementById('lightboxClose').addEventListener('click', () => lightbox.classList.remove('active'));
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) lightbox.classList.remove('active'); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') lightbox.classList.remove('active'); });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    revealEls.forEach(el => el.classList.add('in'));
+  }
+</script>
+
+</body>
+</html>
